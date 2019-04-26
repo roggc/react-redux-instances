@@ -1,0 +1,46 @@
+.placeholder
+{
+  border-radius: 5px;
+  background-color: grey;
+  margin: 5px;
+  padding: 10px;
+  font-family: sans-serif;
+  color: white;
+}
+
+.placeholder2
+{
+  border-radius: 5px;
+  background-color: white;
+  margin: 1px;
+  padding: 4px;
+  font-family: sans-serif;
+  color: grey;
+  cursor: pointer;
+}
+
+.flexRow
+{
+  display: flex;
+}
+
+.flexColumn
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.flexJustify1
+{
+  justify-content: center;
+}
+
+.flexGrow
+{
+  flex-grow: 1;
+}
+
+.flexShrink
+{
+  flex-shrink: 1;
+}
