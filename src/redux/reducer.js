@@ -3,7 +3,7 @@ __devMode__&& console.log('src/redux/reducer')
 import {combineReducers} from 'redux'
 
 let compReducers= {}
-let otherRecuders= {}
+let otherReducers= {}
 
 export default (reducer, name)=>
 {
@@ -16,7 +16,7 @@ export default (reducer, name)=>
   return combineReducers
   (
     {
-      ...otherRecuders,
+      ...otherReducers,
       comps: combineReducers(compReducers)
     }
   )

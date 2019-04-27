@@ -9,12 +9,12 @@ import Prueba1 from '../../prueba1/prueba1'
 import style from '../style/app.css'
 import {store} from '../../../entries/client'
 import addReducer from '../../../redux/reducer'
-import setReducer from '../redux/reducer'
+import reducer from '../redux/reducer'
 import {appSetShow} from '../redux/actions'
 
 export default ({name, ...rest})=>
 {
-  store.replaceReducer(addReducer(setReducer(name), name))
+  store.replaceReducer(addReducer(reducer(name), name))
 
   const mapStateToProps= (state)=>
   (
