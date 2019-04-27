@@ -1,7 +1,7 @@
 __devMode__&& console.log('src/comps/posts/render/posts')
 
 import React from 'react'
-import {store} from '../../../entries/client'
+import store from '../../../redux/store'
 import withState from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import {postsSetTime} from '../redux/actions'

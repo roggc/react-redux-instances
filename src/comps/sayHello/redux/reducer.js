@@ -1,3 +1,5 @@
+__devMode__&& console.log('src/comps/sayHello/redux/reducer')
+
 import * as types from './types'
 
 export default (name)=>(val=

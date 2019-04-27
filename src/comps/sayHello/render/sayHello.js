@@ -1,6 +1,8 @@
+__devMode__&& console.log('src/comps/sayHello/render/sayHello')
+
 import React from 'react'
 import withState from '../../../hocs/state'
-import {store} from '../../../entries/client'
+import store from '../../../redux/store'
 import reducer from '../redux/reducer'
 import {sayHelloSet, sayHelloHide} from '../redux/actions'
 import style from '../style/sayHello.css'

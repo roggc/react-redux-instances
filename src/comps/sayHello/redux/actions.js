@@ -1,3 +1,5 @@
+__devMode__&& console.log('src/comps/sayHello/redux/actions')
+
 import * as types from './types'
 
 export const sayHelloSet= (name)=>(greeting)=>

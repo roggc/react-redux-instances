@@ -5,7 +5,6 @@ import withState from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import style from '../style/content.css'
 
-
 const inst= name=> state=>
 (
   state.foo.show&&

@@ -1,7 +1,8 @@
+__devMode__&& console.log('src/hocs/state')
 
 import React from 'react'
 import {connect} from 'react-redux'
-import {store} from '../entries/client'
+import store from '../redux/store'
 import addReducer from '../redux/reducer'
 
 const withState= (instance)=> (reducer)=> ({name, ...props})=>

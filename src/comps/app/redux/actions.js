@@ -1,3 +1,4 @@
+__devMode__&& console.log('src/comps/app/redux/actions')
 
 import * as types from './types'
 

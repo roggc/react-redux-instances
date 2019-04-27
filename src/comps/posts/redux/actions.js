@@ -1,7 +1,7 @@
 __devMode__&& console.log('src/comps/posts/redux/actions')
 
 import * as types from './types'
-import {store} from '../../../entries/client'
+import store from '../../../redux/store'
 
 const postsSet= name=>val=>
 (

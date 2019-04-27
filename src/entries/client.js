@@ -1,4 +1,4 @@
-__devMode__&& console.log('src/entryPoints/client')
+__devMode__&& console.log('src/entries/client')
 
 import React from 'react'
 import {render} from 'react-dom'
@@ -6,8 +6,7 @@ import {Provider} from 'react-redux'
 import getStore from '../redux/store'
 import App from '../comps/app/render/app'
 import {start} from '../redux/extra/start/actions'
-
-export const store= getStore()
+import store from '../redux/store'
 
 render
 (

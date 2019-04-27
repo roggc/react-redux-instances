@@ -5,8 +5,8 @@ import thunk from 'redux-thunk'
 import addReducer from './reducer'
 import fetch from './middleware/fetch'
 
-export default ()=>
+export default (()=>
 {
   const middlewares = [thunk, fetch]
   return applyMiddleware(...middlewares)(createStore)(addReducer((val={},act)=> val, 'none'))
-}
+})()

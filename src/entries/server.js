@@ -1,4 +1,4 @@
-process.env.NODE_ENV !== 'production' && console.log('src/entryPoints/server')
+process.env.NODE_ENV !== 'production' && console.log('src/entries/server')
 
 import express from 'express'
 import fs from 'fs'

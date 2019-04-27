@@ -1,3 +1,5 @@
+__devMode__&& console.log('src/comps/say/redux/actions')
+
 import * as types from './types'
 
 export const saySet= (name)=>(val)=>
