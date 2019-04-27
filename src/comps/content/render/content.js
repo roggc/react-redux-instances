@@ -1,25 +1,19 @@
 __devMode__&& console.log('src/comps/content/render/content')
 
 import React from 'react'
-import {connect} from 'react-redux'
+import withState from '../../../hocs/state'
+import reducer from '../redux/reducer'
 import style from '../style/content.css'
 
 
-const comp= (props)=>
+const inst= name=> state=>
 (
-  props.content.show&&
+  state.foo.show&&
   <div className= {`${style.placeholder} ${style.flexColumn1}`}>
-  <div className={`${style.flexRow1}`}>
-    {props.content.children}
+    <div className={`${style.flexRow1}`}>
+      {state.foo.children}
     </div>
   </div>
 )
 
-const mapStateToProps= (state)=>
-(
-  {
-    content: state.comps.content
-  }
-)
-
-export default connect(mapStateToProps)(comp)
+export default withState()(inst)(reducer)

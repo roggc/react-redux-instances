@@ -1,23 +1,23 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {store} from '../../../entries/client'
+import withState from '../../../hocs/state'
 import reducer from '../redux/reducer'
 import {saySet, sayHide} from '../redux/actions'
-import addReducer from '../../../redux/reducer'
 import style from '../style/say.css'
 
-export default ({name, ...props})=>
+const init= name=> init=>
 {
-  store.replaceReducer(addReducer(reducer(name), name))
+  init.message&& store.dispatch(saySet(name)(init.message))
+}
 
-  props.message&& store.dispatch(saySet(name)(props.message))
-
+const inst= name=> state=>
+{
   const hide= ()=>
   {
     store.dispatch(sayHide(name)())
   }
 
-  const instance= (state)=>
+  const el=
   (
     state.foo.show&&
     <div className={`${style.general}`}>
@@ -25,13 +25,8 @@ export default ({name, ...props})=>
       <button onClick={hide}>hide</button>
     </div>
   )
-
-  const mapStateToProps= (state)=>
-  (
-    {
-      foo: state.comps[name]
-    }
-  )
-
-  return React.createElement(connect(mapStateToProps)(instance))
+  
+  return el
 }
+
+export default withState(init)(inst)(reducer)

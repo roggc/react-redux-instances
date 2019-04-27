@@ -1,9 +1,8 @@
 __devMode__&& console.log('src/comps/header/redux/reducer')
 
-export default (val=
+export default name=> (val=
 {
-  show: true,
-  pending: false
+  show: true
 }, act)=>
 {
   switch (act.type) {

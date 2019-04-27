@@ -1,22 +1,30 @@
 __devMode__&& console.log('src/comps/posts/render/posts')
 
 import React from 'react'
-import {connect} from 'react-redux'
+import {store} from '../../../entries/client'
+import withState from '../../../hocs/state'
+import reducer from '../redux/reducer'
+import {postsSetTime} from '../redux/actions'
 import style from '../style/posts.css'
 
-const comp= (props)=>
+const init= name=> init=>
+{
+  init.time&& store.dispatch(postsSetTime(name)(init.time))
+}
+
+const inst= name=> state=>
 (
-  props.posts.show&&
+  state.foo.show&&
   <div className={style.card}>
-    {props.posts.pending|| (()=>
+    {state.foo.pending|| (()=>
       (
-        props.posts.data.name
+        state.foo.data.name
       ))()} <br/>
     posts <br/>
-    {props.posts.pending|| (()=>
+    {state.foo.pending|| (()=>
     (
       <ul>
-      {props.posts.data.posts.map((post, key)=>
+      {state.foo.data.posts.map((post, key)=>
         (
           <li key={key}>{post}</li>
         ))}
@@ -25,11 +33,4 @@ const comp= (props)=>
   </div>
 )
 
-const mapStateToProps=(state)=>
-(
-  {
-    posts: state.comps.posts
-  }
-)
-
-export default connect(mapStateToProps)(comp)
+export default withState(init)(inst)(reducer)

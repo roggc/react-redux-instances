@@ -3,14 +3,14 @@ __devMode__&& console.log('src/comps/content/redux/reducer')
 import React from 'react'
 import Home from '../../home/render/home'
 
-export default (val=
+export default name=> (val=
   {
     show: true,
-    pending: false,
-    children: <Home/>
+    children: <Home name='home1'/>
   }, act)=>
 {
-  switch (act.type) {
+  switch (act.type)
+  {
     default:
       return val
   }

@@ -1,23 +1,24 @@
 __devMode__&& console.log('src/comps/posts/redux/actions')
 
 import * as types from './types'
+import {store} from '../../../entries/client'
 
-const postsSet= (data)=>
+const postsSet= name=>val=>
 (
   {
-    type: types.POSTS_SET,
-    val: data
+    type: types.POSTS_SET_+name,
+    val: val
   }
 )
 
-export const postsReset= ()=>
+export const postsReset= name=>()=>
 (
   {
-    type: types.POSTS_RESET
+    type: types.POSTS_RESET_+name
   }
 )
 
-export const postsFetch= ()=>(dispatch)=>
+export const postsFetch= name=> ()=> (dispatch)=>
 {
   const data=
   {
@@ -28,5 +29,13 @@ export const postsFetch= ()=>(dispatch)=>
       'this is another post'
     ]
   }
-  setTimeout(()=>dispatch(postsSet(data)), 3000)
+  setTimeout(()=>dispatch(postsSet(name)(data)), store.getState().comps[name].time)
 }
+
+export const postsSetTime= name=> val=>
+(
+  {
+    type: types.POSTS_SET_TIME_+name,
+    val: val
+  }
+)

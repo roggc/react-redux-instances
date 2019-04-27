@@ -4,10 +4,10 @@ import {connect} from 'react-redux'
 import {store} from '../entries/client'
 import addReducer from '../redux/reducer'
 
-const withInstance= pre=>comp=>name=>init=>
+const withInstance= pre=>inst=>name=>init=>
 {
-  pre(name)(init)
-  return comp(name)
+  pre&& pre(name)(init)
+  return inst(name)
 }
 
 const withState= (instance)=> (reducer)=> ({name, ...props})=>
