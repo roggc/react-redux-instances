@@ -4,8 +4,7 @@ this app (boilerplate, setup) allows you to develop *react-redux* apps by easily
 
 you define a component like this:
 
-`const inst= name=> state=> { ... }`
-
+`const inst= name=> state=> { ... }`           
 `export default withState()(inst)(reducer)`
 
 and you use it like this:
