@@ -12,7 +12,10 @@ export const store= getStore()
 render
 (
   <Provider store={store}>
-    <App/>
+    <div>
+      <App name='app1' message='hola'/>
+      <App name='app2' message='adios'/>
+    </div>
   </Provider>,
   document.getElementById('root')
 )

@@ -3,6 +3,7 @@ import {store} from '../../entries/client'
 
 export default (props)=>
 {
+  
   const el=
   (
     props.state.show&&

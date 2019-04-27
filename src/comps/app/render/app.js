@@ -8,23 +8,38 @@ import Content from '../../content/render/content'
 import Prueba1 from '../../prueba1/prueba1'
 import style from '../style/app.css'
 import {store} from '../../../entries/client'
+import addReducer from '../../../redux/reducer'
+import setReducer from '../redux/reducer'
+import {appSetShow} from '../redux/actions'
 
-const comp= (props)=>
-(
-  props.app.show&&
-  <div className={`${style.noneSelectable}`}>
-    <Header/>
-    <Content/>
-    <Posts/>
-    <Prueba1 state={store.getState().comps.header}/>
-  </div>
-)
+export default ({name, ...rest})=>
+{
+  store.replaceReducer(addReducer(setReducer(name), name))
 
-const mapStateToProps= (state)=>
-(
+  const mapStateToProps= (state)=>
+  (
+    {
+      [name]: state.comps[name]
+    }
+  )
+
+  const instance= (props)=>
   {
-    app: state.comps.app
-  }
-)
+    const clicked= ()=>
+    {
+      store.dispatch(appSetShow(name)(false))
+    }
 
-export default connect(mapStateToProps)(comp)
+    const el=
+    (
+      props[name].show&&
+      <div className={`${style.noneSelectable}`}>
+        {rest.message} <button onClick={clicked}>hide me</button>
+      </div>
+    )
+
+    return el
+  }
+
+  return React.createElement(connect(mapStateToProps)(instance))
+}
