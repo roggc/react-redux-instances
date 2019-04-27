@@ -13,9 +13,9 @@ and you use it like this:
 
 optionally you can pass some `init` properties to change default `state` before first rendering:
 
-`const init= name=> init=> {...}`
-`const inst= name=> state=> {...}`
-`export default withState(init)(inst)(reducer)`
+`const init= name=> init=> {...}`       
+`const inst= name=> state=> {...}`          
+`export default withState(init)(inst)(reducer)`        
 
 and:
 
