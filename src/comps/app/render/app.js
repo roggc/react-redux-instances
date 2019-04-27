@@ -12,18 +12,18 @@ import addReducer from '../../../redux/reducer'
 import reducer from '../redux/reducer'
 import {appSetShow} from '../redux/actions'
 
-export default ({name, ...rest})=>
+export default ({name, ...props})=>
 {
   store.replaceReducer(addReducer(reducer(name), name))
 
   const mapStateToProps= (state)=>
   (
     {
-      [name]: state.comps[name]
+      foo: state.comps[name]
     }
   )
 
-  const instance= (props)=>
+  const instance= (state)=>
   {
     const clicked= ()=>
     {
@@ -32,9 +32,9 @@ export default ({name, ...rest})=>
 
     const el=
     (
-      props[name].show&&
+      state.foo.show&&
       <div className={`${style.noneSelectable}`}>
-        {rest.message} <button onClick={clicked}>hide me</button>
+        {props.message} <button onClick={clicked}>hide me</button>
       </div>
     )
 

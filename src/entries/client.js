@@ -4,7 +4,8 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import getStore from '../redux/store'
-import App from '../comps/app/render/app'
+import SayHello from '../comps/sayHello/render/sayHello'
+import Say from '../comps/say/render/say'
 import {start} from '../redux/extra/start/actions'
 
 export const store= getStore()
@@ -13,8 +14,10 @@ render
 (
   <Provider store={store}>
     <div>
-      <App name='app1' message='hola'/>
-      <App name='app2' message='adios'/>
+      {
+        //<Say name='say0' message='goodbye'/>
+      }
+      <SayHello name='say1' message='italy'/>
     </div>
   </Provider>,
   document.getElementById('root')
