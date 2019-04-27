@@ -4,12 +4,6 @@ import {connect} from 'react-redux'
 import {store} from '../entries/client'
 import addReducer from '../redux/reducer'
 
-const withInstance= pre=>inst=>name=>init=>
-{
-  pre&& pre(name)(init)
-  return inst(name)
-}
-
 const withState= (instance)=> (reducer)=> ({name, ...props})=>
 {
   store.replaceReducer(addReducer(reducer(name), name))
@@ -24,4 +18,10 @@ const withState= (instance)=> (reducer)=> ({name, ...props})=>
   return React.createElement(connect(mapStateToProps)(instance(name)(props)))
 }
 
-export default pre=>comp=>reducer=> withState(withInstance(pre)(comp))(reducer)
+const withInstance= pre=>inst=>name=>init=>
+{
+  pre&& pre(name)(init)
+  return inst(name)
+}
+
+export default init=>inst=>reducer=> withState(withInstance(init)(inst))(reducer)

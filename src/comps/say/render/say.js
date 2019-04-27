@@ -14,7 +14,7 @@ const inst= name=> state=>
 {
   const hide= ()=>
   {
-    store.dispatch(sayHide(name)())
+    state.dispatch(sayHide(name)())
   }
 
   const el=
@@ -25,7 +25,7 @@ const inst= name=> state=>
       <button onClick={hide}>hide</button>
     </div>
   )
-  
+
   return el
 }
 

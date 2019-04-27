@@ -7,7 +7,6 @@ import Content from '../../content/render/content'
 import SayHello from '../../sayHello/render/sayHello'
 import Say from '../../say/render/say'
 import style from '../style/app.css'
-import {store} from '../../../entries/client'
 import reducer from '../redux/reducer'
 import {appSetShow} from '../redux/actions'
 import withState from '../../../hocs/state'
@@ -16,7 +15,7 @@ const inst= name=> state=>
 {
   const clicked= ()=>
   {
-    store.dispatch(appSetShow(name)(false))
+    state.dispatch(appSetShow(name)(false))
   }
 
   const el=

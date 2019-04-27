@@ -14,7 +14,7 @@ const inst= name=> state=>
 {
   const hide= ()=>
   {
-    store.dispatch(sayHelloHide(name)())
+    state.dispatch(sayHelloHide(name)())
   }
 
   const el=
