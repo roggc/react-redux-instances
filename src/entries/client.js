@@ -7,6 +7,7 @@ import getStore from '../redux/store'
 import App from '../comps/app/render/app'
 import {start} from '../redux/extra/start/actions'
 import store from '../redux/store'
+import '../html/favicon.ico'
 
 render
 (

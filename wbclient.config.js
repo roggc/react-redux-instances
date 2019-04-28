@@ -34,6 +34,18 @@ module.exports =
         }
       },
       {
+        test: /\.(png|jpe?g|gif|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options:
+            {
+              name: './public/[name].[ext]'
+            },
+          },
+        ],
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
