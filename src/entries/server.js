@@ -4,13 +4,9 @@ import express from 'express'
 import fs from 'fs'
 import path from 'path'
 
-const render= (req,res)=>fs.readFile(path.resolve('./out/client/index.html'), 'utf8', (err, data) => res.send(data))
-
+const render= (req,res)=>fs.readFile(path.resolve('./out/client/index.html'), 'utf8', (err, data) =>res.send(data))
 const app = express()
 const port = process.env.PORT || 3000
-
-app.use('/public', express.static('out/client/public'))
-app.use(render)
+app.use(express.static('out/client'))
 app.listen(port)
-
 console.log(`listening on localhost:${port} ...`)

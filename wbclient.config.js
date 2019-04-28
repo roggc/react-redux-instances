@@ -15,7 +15,7 @@ module.exports =
   output:
   {
     path: path.join(__dirname, 'out/client'),
-    filename: './public/[name].[chunkhash].js'
+    filename: './[name].[chunkhash].js'
   },
   module:
   {
@@ -32,18 +32,6 @@ module.exports =
             minimize: !devMode
           }
         }
-      },
-      {
-        test: /\.(png|jpe?g|gif|ico)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options:
-            {
-              name: './public/[name].[ext]'
-            },
-          },
-        ],
       },
       {
         test: /\.(js|jsx)$/,
@@ -77,14 +65,15 @@ module.exports =
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(
       {
-        filename: './index.html',
-        template: './src/html/index.html'
+        favicon: './src/html/favicon.ico',
+        template: './src/html/index.html',
+        filename: './index.html'
       }
     ),
     new MiniCssExtractPlugin
     (
       {
-        filename: './public/[name].[contenthash].css'
+        filename: './[name].[contenthash].css'
       }
     ),
     new webpack.HashedModuleIdsPlugin(),
