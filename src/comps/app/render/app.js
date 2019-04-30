@@ -9,7 +9,13 @@ import Say from '../../say/render/say'
 import style from '../style/app.css'
 import reducer from '../redux/reducer'
 import {appSetShow} from '../redux/actions'
+import store from '../../../redux/store'
 import withState from '../../../hocs/state'
+
+const init = name=> init=>
+{
+  init.show&& store.dispatch(appSetShow(name)(init.show))
+}
 
 const inst= name=> state=>
 {
@@ -39,4 +45,4 @@ const inst= name=> state=>
   return el
 }
 
-export default withState()(inst)(reducer)
+export default withState(init)(inst)(reducer)

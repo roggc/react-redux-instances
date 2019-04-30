@@ -4,7 +4,7 @@ import * as types from './types'
 
 export default (name)=>(val=
 {
-  show: true,
+  show: false,
   val: '...'
 }, act)=>
 {

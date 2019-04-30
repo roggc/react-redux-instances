@@ -5,7 +5,7 @@ import {postsFetch, postsReset} from './actions'
 
 export default name=> (val=
   {
-    show: true,
+    show: false,
     pending: true,
     data: {},
     fetch: postsFetch(name),
